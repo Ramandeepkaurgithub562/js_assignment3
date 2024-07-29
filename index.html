@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoothie Order Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .ingredient-img {
+            width: 50px; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Order Your Smoothie</h1>
+        <form id="smoothieForm" class="smoothie-form">
+            <!-- Size Selection -->
+            <div class="form-group">
+                <label for="size">Size:</label>
+                <select id="size" name="size" class="form-control">
+                    <option value="small">Small - $5</option>
+                    <option value="medium">Medium - $7</option>
+                    <option value="large">Large - $9</option>
+                </select>
+            </div>
+
+            <!-- Ingredient Selection -->
+            <div class="form-group">
+                <label>Ingredients:</label>
+                <div class="ingredient-option">
+                    <input type="checkbox" id="strawberry" name="ingredients" value="Strawberry" class="form-check-input" data-price="1">
+                    <label for="strawberry">Strawberry - $1</label>
+                    <img src="Img/strawberry.jpg" alt="Strawberry" class="ingredient-img">
+                </div>
+                <div class="ingredient-option">
+                    <input type="checkbox" id="banana" name="ingredients" value="Banana" class="form-check-input" data-price="1.5">
+                    <label for="banana">Banana - $1.50</label>
+                    <img src="Img/banana.jpg" alt="Banana" class="ingredient-img">
+                </div>
+                <div class="ingredient-option">
+                    <input type="checkbox" id="blueberry" name="ingredients" value="Blueberry" class="form-check-input" data-price="2">
+                    <label for="blueberry">Blueberry - $2</label>
+                    <img src="Img/blueberry.jpg" alt="Blueberry" class="ingredient-img">
+                </div>
+                <!-- Additional Ingredients -->
+                <div class="ingredient-option">
+                    <input type="checkbox" id="mango" name="ingredients" value="Mango" class="form-check-input" data-price="1.75">
+                    <label for="mango">Mango - $1.75</label>
+                    <img src="Img/mango.jpg" alt="Mango" class="ingredient-img">
+                </div>
+                <div class="ingredient-option">
+                    <input type="checkbox" id="spinach" name="ingredients" value="Spinach" class="form-check-input" data-price="1.25">
+                    <label for="spinach">Spinach - $1.25</label>
+                    <img src="Img/pineapple.jpg" alt="Spinach" class="ingredient-img">
+                </div>
+                <div class="ingredient-option">
+                    <input type="checkbox" id="kale" name="ingredients" value="Kale" class="form-check-input" data-price="1.5">
+                    <label for="kale">Kale - $1.50</label>
+                    <img src="Img/kale.jpg" alt="Kale" class="ingredient-img">
+                </div>
+                <div class="ingredient-option">
+                    <input type="checkbox" id="avocado" name="ingredients" value="Avocado" class="form-check-input" data-price="2.5">
+                    <label for="avocado">Avocado - $2.50</label>
+                    <img src="Img/avocado.jpg" alt="Avocado" class="ingredient-img">
+                </div>
+            </div>
+
+            <!-- Extra Options -->
+            <div class="form-group">
+                <label for="addOns">Add-Ons:</label>
+                <div class="form-check">
+                    <input type="checkbox" id="protein" name="addOns" value="Protein Powder" class="form-check-input" data-price="2">
+                    <label for="protein">Protein Powder - $2</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="chia" name="addOns" value="Chia Seeds" class="form-check-input" data-price="1.5">
+                    <label for="chia">Chia Seeds - $1.50</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="honey" name="addOns" value="Honey" class="form-check-input" data-price="1">
+                    <label for="honey">Honey - $1</label>
+                </div>
+            </div>
+
+            <!-- Sweetener Selection -->
+            <div class="form-group">
+                <label for="sweetener">Sweetener:</label>
+                <select id="sweetener" name="sweetener" class="form-control">
+                    <option value="none">None</option>
+                    <option value="sugar" data-price="0.5">Sugar - $0.50</option>
+                    <option value="agave" data-price="0.75">Agave Syrup - $0.75</option>
+                    <option value="maple" data-price="1">Maple Syrup - $1</option>
+                </select>
+            </div>
+
+            <!-- Order Button -->
+            <button type="button" onclick="orderSmoothie()" class="btn btn-primary">Order</button>
+            <button type="button" onclick="downloadPDF()" class="btn btn-secondary">Download Bill</button>
+        </form>
+
+        <!-- Smoothie Description and Total -->
+        <div id="smoothieDescription" class="description-total"></div>
+        <div id="smoothieTotal" class="description-total"></div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
